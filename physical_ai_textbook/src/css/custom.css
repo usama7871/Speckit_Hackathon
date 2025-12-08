@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=JetBrains+Mono:wght@400&display=swap');
+
+:root {
+    /* Galactic Brand Colors - Light Mode (Clean Tech) */
+    --ifm-color-primary: #4f46e5;
+    --ifm-color-primary-dark: #4338ca;
+    --ifm-color-primary-darker: #3730a3;
+    --ifm-color-primary-darkest: #312e81;
+    --ifm-color-primary-light: #6366f1;
+    --ifm-color-primary-lighter: #818cf8;
+    --ifm-color-primary-lightest: #a5b4fc;
+
+    --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+    --ifm-heading-font-family: 'Orbitron', sans-serif;
+    --ifm-font-family-monospace: 'JetBrains Mono', monospace;
+
+    --ifm-background-color: #f1f5f9;
+    --ifm-background-surface-color: #ffffff;
+    --ifm-navbar-background-color: rgba(255, 255, 255, 0.8);
+
+    --neon-glow: 0 0 10px rgba(79, 70, 229, 0.2);
+    --glass-border: 1px solid rgba(0, 0, 0, 0.05);
+    --hud-radius: 12px;
+}
+
+/* Deep Space Dark Mode (The Real Deal) */
+[data-theme='dark'] {
+    --ifm-color-primary: #d946ef;
+    /* Fuchsia Neon */
+    --ifm-color-primary-dark: #c026d3;
+    --ifm-color-primary-darker: #a21caf;
+    --ifm-color-primary-darkest: #86198f;
+    --ifm-color-primary-light: #e879f9;
+    --ifm-color-primary-lighter: #f0abfc;
+    --ifm-color-primary-lightest: #fae8ff;
+
+    --ifm-background-color: #030014;
+    /* Void Black */
+    --ifm-background-surface-color: #0f172a;
+    --ifm-navbar-background-color: rgba(3, 0, 20, 0.6);
+
+    --neon-glow: 0 0 15px rgba(217, 70, 239, 0.5), 0 0 30px rgba(217, 70, 239, 0.3);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    --docusaurus-highlighted-code-line-bg: rgba(217, 70, 239, 0.15);
+}
+
+/* --- Global UX Polish --- */
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--ifm-color-primary) var(--ifm-background-color);
+}
+
+/* Selection Color */
+::selection {
+    background: var(--ifm-color-primary);
+    color: white;
+}
+
+/* Scifi Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--ifm-background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--ifm-color-primary);
+    border-radius: 4px;
+    box-shadow: 0 0 10px var(--ifm-color-primary);
+}
+
+/* --- Background Animation (Dark Mode Starfield) --- */
+[data-theme='dark'] body {
+    background-image:
+        radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 3px),
+        radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 2px),
+        radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 3px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+    animation: starMove 60s linear infinite;
+    transition: background-color 0.5s ease;
+}
+
+@keyframes starMove {
+    from {
+        background-position: 0 0, 40px 60px, 130px 270px;
+    }
+
+    to {
+        background-position: 550px 550px, 390px 410px, 680px 820px;
+    }
+}
+
+/* --- HUD Navbar --- */
+.navbar {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: var(--glass-border);
+    box-shadow: none;
+    height: 4rem;
+}
+
+.navbar__logo {
+    transition: transform 0.3s ease;
+}
+
+.navbar__logo:hover {
+    transform: scale(1.1) rotate(-5deg);
+    filter: drop-shadow(0 0 8px var(--ifm-color-primary));
+}
+
+/* --- Theme Toggle Switch FX --- */
+/* Target the toggle button wrapper */
+.navbar__items--right {
+    align-items: center;
+}
+
+/* --- Futuristic Typography --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Orbitron', 'Inter', sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+h1 {
+    background: linear-gradient(120deg, var(--ifm-color-primary-light), #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(var(--ifm-color-primary), 0.5));
+}
+
+[data-theme='light'] h1 {
+    background: linear-gradient(120deg, var(--ifm-color-primary-dark), var(--ifm-color-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- Glassmorphic Cards --- */
+.card {
+    border-radius: var(--hud-radius);
+    border: var(--glass-border);
+    background: rgba(var(--ifm-background-surface-color), 0.6);
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Hologram Scanline Effect on Hover */
+.card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to bottom,
+            transparent,
+            rgba(255, 255, 255, 0.05),
+            transparent);
+    transform: rotate(45deg);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--neon-glow);
+    border-color: var(--ifm-color-primary);
+}
+
+.card:hover::after {
+    opacity: 1;
+    transform: rotate(45deg) translateY(20%);
+}
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    border: var(--glass-border);
+    margin: 2rem 0;
+}
+
+/* Floating Elements in Hero */
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--ifm-color-primary);
+    filter: blur(100px);
+    opacity: 0.2;
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+    animation: pulseBlob 10s infinite alternate;
+}
+
+@keyframes pulseBlob {
+    from {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+
+    to {
+        transform: scale(1.2);
+        opacity: 0.3;
+    }
+}
+
+/* --- Buttons --- */
+.button {
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.button--primary {
+    background: transparent;
+    border: 1px solid var(--ifm-color-primary);
+    color: var(--ifm-color-primary);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+
+.button--primary:hover {
+    background: var(--ifm-color-primary);
+    color: white;
+    box-shadow: 0 0 20px var(--ifm-color-primary);
+    text-shadow: 0 0 5px white;
+}
+
+/* --- Sidebar --- */
+.menu {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+[data-theme='dark'] .menu__link--active {
+    background: linear-gradient(90deg, rgba(217, 70, 239, 0.2), transparent);
+    border-left: 3px solid var(--ifm-color-primary);
+    color: white;
+}
+
+/* --- Code Blocks --- */
+[class^='codeBlockContainer'] {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}

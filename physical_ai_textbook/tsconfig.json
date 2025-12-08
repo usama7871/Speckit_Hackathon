@@ -1,0 +1,10 @@
+{
+    // This file is not used in emit, but it provides type safety.
+    // The actual compilation is done by compilation tools (e.g. webpack, swc, esbuild, etc.).
+    //
+    // For Docusaurus, you can just use "ESNext" for everything to get the most modern features.
+    "extends": "@docusaurus/tsconfig",
+    "compilerOptions": {
+        "baseUrl": "."
+    }
+}
