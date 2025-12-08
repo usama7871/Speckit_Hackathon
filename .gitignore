@@ -1,0 +1,21 @@
+# Info regarding Dependency files
+node_modules/
+.docusaurus/
+build/
+dist/
+.cache/
+
+# Backend Virtual Envs and Cache
+backend/venv/
+backend/.env
+__pycache__/
+*.py[cod]
+
+# OS System Files
+.DS_Store
+Thumbs.db
+
+# Environment Variables
+.env
+.env.local
+.env.production
