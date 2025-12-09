@@ -105,7 +105,7 @@ export default function ChatInterface() {
                 ? { content: contentToProcess, user_profile: { user_id: '1', ...profile } }
                 : { content: contentToProcess };
 
-            const res = await fetch(`http://localhost:8000/${endpoint}`, {
+            const res = await fetch(`https://physical-ai-backend-jfiv.onrender.com${endpoint}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body)
@@ -130,7 +130,7 @@ export default function ChatInterface() {
         const selection = window.getSelection()?.toString() || '';
 
         try {
-            const response = await fetch('http://localhost:8000/chat', {
+            const response = await fetch('https://physical-ai-backend-jfiv.onrender.com/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
