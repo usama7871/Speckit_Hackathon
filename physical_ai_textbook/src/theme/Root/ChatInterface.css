@@ -133,6 +133,22 @@
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--ifm-color-primary) rgba(0, 0, 0, 0.1);
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: var(--ifm-color-primary);
+    border-radius: 10px;
 }
 
 /* Bubbles */
@@ -143,6 +159,19 @@
     line-height: 1.6;
     position: relative;
     backdrop-filter: blur(5px);
+    animation: slideUpFade 0.3s ease-out forwards;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .message-user {
@@ -324,7 +353,92 @@
     transition: all 0.2s;
 }
 
-.save-btn:hover {
-    filter: brightness(1.2);
-    transform: translateY(-2px);
+/* Suggestion Chips */
+.suggestion-chips {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 1rem 0.8rem 1rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.suggestion-chips::-webkit-scrollbar {
+    display: none;
+}
+
+.suggestion-chip {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 6px 12px;
+    color: #e2e8f0;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
+}
+
+.suggestion-chip:hover {
+    background: var(--ifm-color-primary);
+    border-color: var(--ifm-color-primary);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Markdown Rendering Styles */
+.message-content p {
+    margin-bottom: 0.5rem;
+}
+
+.message-content p:last-child {
+    margin-bottom: 0;
+}
+
+.message-content code {
+    background: rgba(0, 0, 0, 0.3) !important;
+    /* Override global Docusaurus style */
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+    color: #ffd700;
+    /* Gold for inline code */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.message-content pre {
+    background: #0f172a !important;
+    padding: 0.8rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 0.5rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.message-content pre code {
+    background: transparent !important;
+    padding: 0;
+    color: #e2e8f0;
+    border: none;
+}
+
+.message-content ul,
+.message-content ol {
+    padding-left: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.message-content li {
+    margin-bottom: 0.2rem;
+}
+
+.message-content strong {
+    color: var(--ifm-color-primary-light);
+}
+
+.message-content a {
+    color: var(--ifm-color-primary-lighter);
+    text-decoration: underline;
 }

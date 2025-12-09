@@ -13,8 +13,8 @@ const config: Config = {
     baseUrl: '/',
 
     // GitHub pages deployment config.
-    organizationName: 'facebook', // Usually your GitHub org/user name.
-    projectName: 'docusaurus', // Usually your repo name.
+    organizationName: 'usama7871', // Usually your GitHub org/user name.
+    projectName: 'Speckit_Hackathon', // Usually your repo name.
 
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
@@ -60,7 +60,7 @@ const config: Config = {
                     label: 'Textbook',
                 },
                 {
-                    href: 'https://github.com/facebook/docusaurus', // Placeholder
+                    href: 'https://github.com/usama7871/Speckit_Hackathon', // Placeholder
                     label: 'GitHub',
                     position: 'right',
                 },
@@ -87,7 +87,7 @@ const config: Config = {
                         },
                         {
                             label: 'Twitter',
-                            href: '#',
+                            href: 'https://x.com/usama7871',
                         },
                     ],
                 },
@@ -96,7 +96,7 @@ const config: Config = {
                     items: [
                         {
                             label: 'GitHub',
-                            href: 'https://github.com/facebook/docusaurus',
+                            href: 'https://github.com/usama7871/Speckit_Hackathon',
                         },
                     ],
                 },

@@ -20,11 +20,15 @@ graph LR;
 ```
 
 ### The Control Law
-$u(t) = K_p e(t) + K_i \int e(t) dt + K_d \frac{de(t)}{dt}$
 
-*   **P (Proportional)**: Push harder if the error is large. (Spring)
-*   **I (Integral)**: Push harder if the error has persisted for a long time. (Reset)
-*   **D (Derivative)**: Push less if we are closing the gap fast. (Damper)
+To avoid MDX parsing issues with LaTeX variables, the Control Law is represented here in plain logic:
+
+> **Output = P + I + D**
+
+Where:
+*   **P (Proportional)**: $K_p \times Error$ (Push harder if error is large)
+*   **I (Integral)**: $K_i \times \sum Error$ (Push harder if error persists)
+*   **D (Derivative)**: $K_d \times \Delta Error$ (Push less if closing gap fast)
 
 ## Kinematics
 

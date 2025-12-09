@@ -1,0 +1,9 @@
+[
+    {
+      "allowed_origins": ["*"],
+      "description": "Allow all for hackathon usage",
+      "headers": ["*"],
+      "methods": ["*"],
+      "max_age_seconds": 3600
+    }
+]
